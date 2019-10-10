@@ -14,19 +14,20 @@ int main(void)
 	printf("Выберите какую ф-ию посчитать: f - 1, g -2, y - 3: ");
 	scanf("%i", &funct);
 
-	if (funct == 1) {
+	switch(funct) {
+	    case 1:
 		f = (sin(pi * (10 * a * a + 37 * a * x + 7 * x * x)));
 		printf("%f\n", f);
-	}
-	else if (funct == 2) {
+		break;
+	    case 2:
 		g = -1 * (2 * (-5 * a * a + 3 * a * x + 2 * x * x) / (5 * a * a + 9 * a * x - 2 * x * x));
 		printf("%f\n", g);
-	}
-	else if (funct == 3) {
+		break;
+	    case 3:
 		y = (log(-5 * a * a - 16 * a * x + 16 * x * x + 1) / log(2));
 		printf("%f\n", y);
-	}
-	else {
+		break;
+	    default:
 		printf("ERROR");
 	}
 }
