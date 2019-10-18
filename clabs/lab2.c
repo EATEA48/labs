@@ -18,9 +18,11 @@ int main(void)
 
         switch(funct) {
             case 1:
-                f = (sin(pi * (10 * a * a + 37 * a * x + 7 * x * x)));
-                printf("%f\n", f);
-                break;
+		if (a ){
+                	f = (sin(pi * (10 * a * a + 37 * a * x + 7 * x * x)));
+                	printf("%f\n", f);
+                	break;
+		}
             case 2:
                 g = -1 * (2 * (-5 * a * a + 3 * a * x + 2 * x * x) / (5 * a * a + 9 * a * x - 2 * x * x));
                 printf("%f\n", g);
@@ -32,5 +34,6 @@ int main(void)
             default:
                 printf("ERROR");
         }
+	return 0;
 }
 
