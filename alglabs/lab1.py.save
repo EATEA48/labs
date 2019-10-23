@@ -1,0 +1,10 @@
+from random import randint
+
+array = []
+N = 30
+q = 0
+g = 0
+
+for i in range(N-1):
+    array.append(randint(1, 99)
+    )
