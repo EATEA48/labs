@@ -27,7 +27,7 @@ elif (fun == 'f'):
             a += sh
 
 elif (fun == 'y'):
-    for i in range(p):
+    for i in range(var):
         y = (log(-5 * a**2 - 16 * a * x + 16 * x**2 + 1) / log(2))
         print(y)
         a += sh
