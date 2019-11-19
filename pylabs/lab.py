@@ -1,3 +1,4 @@
+
 from math import *
 
 a = float(input("Введите a: "))
@@ -64,17 +65,23 @@ while p >= 0:
         p -= 1
     # Проверка на окончание цикла
     if p == 0:
-        # Вывод выбранной ф-ии и ее max э-та
-        if fun == 'g':
-            print('Максимальный эл-т массива mg: ' + str(mg_max))
-            print('{ ' + str(mg) + '\n')
-            print('}')
-        if fun == 'f':
-            print('Максимальный эл-т массива mf: ' + str(mf_max))
-            print(mf)
-        if fun == 'y':
-            print('Максимальный эл-т массива my: ' + str(my_max))
-            print(my)
-
-
-
+        output = str(input('Как вывести ответ? (tab, str)'))
+        if output == 'str':
+            # Вывод выбранной ф-ии и ее max э-та
+            if fun == 'g':
+                print('Максимальный эл-т массива mg: ' + str(mg_max))
+                # Вывод массива в строку
+                print(str(mg))
+            if fun == 'f':
+                print('Максимальный эл-т массива mf: ' + str(mf_max))
+                # Вывод массива в строку
+                print(mf)
+            if fun == 'y':
+                print('Максимальный эл-т массива my: ' + str(my_max))
+                # Вывод массива в строку
+                print(my)
+        elif output == 'tab':
+            if fun == 'g':
+                for i in range(mg[i]):
+                    print('a= ' + a + 'x= ' + x + mg[i])
+                    i += 1
