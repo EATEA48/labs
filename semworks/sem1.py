@@ -1,4 +1,8 @@
-x = int(input())
+import math
 
-x1 = 0.5 * (x + 1)
-print(x1)
+a = int(input())
+
+x = math.sqrt(a)
+
+answer = 0.5 * (x + a/x)
+print(answer)
