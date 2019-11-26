@@ -52,7 +52,7 @@ while p >= 0:
         # Ф-ия y
         elif fun == 'y':
             for i in range(p):
-                y = (log(-5 * a ** 2 - 16 * a * x + 16 * x ** 2 + 1) / log(2))
+                y = (log(-5 * a ** 2 - 16 * a * x + 16 * x ** 2 + 1) /log(2))
                 if log(2) == 0:
                     print("ERROR")
                 else:
@@ -82,6 +82,27 @@ while p >= 0:
                 print(my)
         elif output == 'tab':
             if fun == 'g':
-                for i in range(mg[i]):
-                    print('a= ' + a + 'x= ' + x + mg[i])
+                for i in mg:
+                    mg_i = i
+                    print('| ' + 'a= ' + str(a) + ' | ' + ' x= ' + str(x) + ' | ' + str(mg_i) + ' |')
                     i += 1
+            if fun == 'f':
+                for i in mf:
+                    mf_i = i
+                    print('| ' + 'a= ' + str(a) + ' | ' + ' x= ' + str(x) + ' | ' + str(mf_i) + ' |')
+                    i += 1
+            if fun == 'y':
+                for i in my:
+                    my_i = i
+                    print('| ' + 'a= ' + str(a) + ' | ' + ' x= ' + str(x) + ' | ' + str(my_i) + ' |')
+                    i += 1
+
+my_file = open('list.txt', 'a')
+my_file.write('mg: ' + str(mg) + '\n')
+my_file.write('mf: ' + str(mf) + '\n')
+my_file.write('my: ' + str(my) + '\n')
+my_file.close()
+
+mf.clear()
+mg.clear()
+my.clear()
