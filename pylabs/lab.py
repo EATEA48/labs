@@ -119,8 +119,12 @@ mg = [float(e.strip()) for e in my_file_mg.readlines()]
 my_file_mg.close()
 print(mg)
 
-my_file_mf = open('mf_list.txt' , 'r')
+my_file_mf = open('mf_list.txt', 'r')
 mf = [float(e.strip()) for e in my_file_mf.readlines()]
 my_file_mf.close()
 print(mf)
 
+my_file_my = open('my_list.txt' , 'r')
+m = [float(e.strip()) for e in my_file_my.readlines()]
+my_file_my.close()
+print(my)
