@@ -2,6 +2,7 @@
 from math import *
 
 a = float(input("Введите a: "))
+
 x = float(input("Введите x: "))
 fun = str(input("Введите ф-ию которую вы хотите вычислить( g, f, y): "))
 p = int(input('Сколько считать: '))
@@ -26,7 +27,7 @@ while p >= 0:
         else:
             print('END')
     # Проверка на ограничения
-    if a != 0 and a != 1:
+    if a != 0 and a != x:
         # Ф-ия g
         if fun == 'g':
             for i in range(p):
@@ -97,12 +98,29 @@ while p >= 0:
                     print('| ' + 'a= ' + str(a) + ' | ' + ' x= ' + str(x) + ' | ' + str(my_i) + ' |')
                     i += 1
 
-my_file = open('list.txt', 'a')
-my_file.write('mg: ' + str(mg) + '\n')
-my_file.write('mf: ' + str(mf) + '\n')
-my_file.write('my: ' + str(my) + '\n')
-my_file.close()
+my_file_mg = open('mg_list.txt', 'w')
+for i in mg:
+    my_file_mg.write(str(i) + '\n')
+my_file_mg.close
+my_file_mf = open('mf_list.txt', 'w')
+my_file_mf.write(str(mf) + '\n')
+my_file_mf.close()
+my_file_my = open('my_list.txt', 'w')
+my_file_my.write(str(my) + '\n')
+my_file_my.close()
 
 mf.clear()
 mg.clear()
 my.clear()
+
+
+my_file_mg = open('mg_list.txt', 'r')
+mg = [float(e.strip()) for e in my_file_mg.readlines()]
+my_file_mg.close()
+print(mg)
+
+my_file_mf = open('mf_list.txt' , 'r')
+mf = [float(e.strip()) for e in my_file_mf.readlines()]
+my_file_mf.close()
+print(mf)
+
