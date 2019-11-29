@@ -111,13 +111,15 @@ while p >= 0:
 my_file_mg = open('mg_list.txt', 'w')
 for i in mg:
     my_file_mg.write(str(i) + '\n')
-my_file_mg.close
+    my_file_mg.close()
 my_file_mf = open('mf_list.txt', 'w')
-my_file_mf.write(str(mf) + '\n')
-my_file_mf.close()
+for i in mf:
+    my_file_mf.write(str(mf) + '\n')
+    my_file_mf.close()
 my_file_my = open('my_list.txt', 'w')
-my_file_my.write(str(my) + '\n')
-my_file_my.close()
+for i in my:
+    my_file_my.write(str(my) + '\n')
+    my_file_my.close()
 
 mf.clear()
 mg.clear()
