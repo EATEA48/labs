@@ -1,8 +1,8 @@
 
 from math import *
 
-a = float(input("Введите a: "))
 
+a = float(input("Введите a: "))
 x = float(input("Введите x: "))
 fun = str(input("Введите ф-ию которую вы хотите вычислить( g, f, y): "))
 p = int(input('Сколько считать: '))
@@ -15,6 +15,16 @@ my = []
 mg_max = 0
 mf_max = 0
 my_max = 0
+#
+# def test1(some, params):
+#     return 42
+#
+# funcs = {
+#     'test1': test1
+# }
+#
+# funcs['test1'](param1, param2)
+
 
 while p >= 0:
     # Проверка на кол-во счетчика
