@@ -63,7 +63,7 @@ while p >= 0:
         # Ф-ия y
         elif fun == 'y':
             for i in range(p):
-                y = (log(-5 * a ** 2 - 16 * a * x + 16 * x ** 2 + 1) /log(2))
+                
                 if log(2) == 0:
                     print("ERROR")
                 else:
