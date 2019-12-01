@@ -1,6 +1,5 @@
 from math import *
 
-
 mf = []
 mg = []
 my = []
@@ -30,7 +29,7 @@ def f_func():
     if a == 0:
         print('ERROR')
     else:
-        print(f)
+        # print(f)
         if f > mf_max:
             mf_max = f
             mf.append(f)
@@ -43,7 +42,7 @@ def g_func():
     if (5 * a ** 2 + 9 * a * x - 2 * x ** 2) == 0:
         print('ERROR')
     else:
-        print(g)
+        # print(g)
         if g > mg_max:
             mg_max = g
         mg.append(g)
@@ -56,19 +55,30 @@ def y_func():
     if log(2) == 0:
         print("ERROR")
     else:
-        print(y)
+        # print(y)
         if y > my_max:
             my_max = y
             my.append(y)
         # print(my_max)
 
-while True:
+run = True
+while run:
     while p >= 0:
         if p == 0:
-            question = input('Вы хотите продолить?(да, нет)')
+            while run:
+                try:
+                    question = input('Вы хотите продолить?(да, нет)')
+                    break
+                except:
+                    print('Введены неверные данные')
             if question == ('да' or 'yes'):
-                p = int(input('Сколько считать?'))
-                sh = float(input('С каким шагом?'))
+                while run:
+                    try:
+                        p = int(input('Сколько считать?'))
+                        sh = float(input('С каким шагом?'))
+                        break
+                    except:
+                        print('Введены неверные данные')
             else:
                 print('END')
 
@@ -84,7 +94,13 @@ while True:
                 a += sh
         p -= 1
         if p == 0:
-            output = str(input('Как вывести ответ? (tab, str)'))
+            while run:
+                try:
+                    global output
+                    output = str(input('Как вывести ответ? (tab, str)'))
+                    break
+                except:
+                    print("Введены неверные данные")
             if output == 'str':
                 if fun == 'g':
                     print('Максимальный эл-т массива mg: ' + str(mg_max))
@@ -100,24 +116,27 @@ while True:
                     print(my)
             elif output == 'tab':
                 if fun == 'g':
+                    print('| ' + 'a' + '   | ' + 'x' + '   |  ' + 'y')
                     for i in mg:
                         for j in a_mass:
-                            print('| ' + 'a= ' + str(j) + ' | ' + ' x= ' + str(x) + ' | ' + str(i) + ' |')
+                            print('| ' + str(j) + ' | '  + str(x) + ' | ' + str(i) + ' |')
                             j += 1
                         i += 1
                 if fun == 'f':
+                    print('| ' + 'a' + '   | ' + 'x' + '   |  ' + 'y')
                     for i in mf:
                         for j in a_mass:
-                            print('| ' + 'a= ' + str(j) + ' | ' + ' x= ' + str(x) + ' | ' + str(i) + ' |')
+                            print('| ' + str(j) + ' | ' + str(x) + ' | ' + str(i) + ' |')
                             j += 1
                         i += 1
                 if fun == 'y':
+                    print('| ' + 'a' + '   | ' + 'x' + '   |  ' + 'y')
                     for i in my:
                         for j in a_mass:
-                            print('| ' + 'a= ' + str(j) + ' | ' + ' x= ' + str(x) + ' | ' + str(i) + ' |')
+                            print('| ' + str(j) + ' | ' + str(x) + ' | ' + str(i) + ' |')
                             j += 1
                         i += 1
-
+        run = False
 
 my_file_mg = open('mg_list.txt', 'w')
 for i in mg:
@@ -136,7 +155,6 @@ mf.clear()
 mg.clear()
 my.clear()
 
-
 my_file_mg = open('mg_list.txt', 'r')
 mg = [float(e.strip()) for e in my_file_mg.readlines()]
 my_file_mg.close()
@@ -147,7 +165,7 @@ mf = [float(e.strip()) for e in my_file_mf.readlines()]
 my_file_mf.close()
 print(mf)
 
-my_file_my = open('my_list.txt' , 'r')
+my_file_my = open('my_list.txt', 'r')
 m = [float(e.strip()) for e in my_file_my.readlines()]
 my_file_my.close()
 print(my)
