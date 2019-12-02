@@ -61,16 +61,18 @@ def y_func():
             my.append(y)
         # print(my_max)
 
+
+
 run = True
 while run:
     while p >= 0:
         if p == 0:
-            while run:
-                try:
-                    question = input('Вы хотите продолить?(да, нет)')
-                    break
-                except:
-                    print('Введены неверные данные')
+            # while run:
+            #     try:
+            question = input('Вы хотите продолить?(да, нет)')
+                #     break
+                # except:
+                #     print('Введены неверные данные')
             if question == ('да' or 'yes'):
                 while run:
                     try:
@@ -94,13 +96,13 @@ while run:
                 a += sh
         p -= 1
         if p == 0:
-            while run:
-                try:
-                    global output
-                    output = str(input('Как вывести ответ? (tab, str)'))
-                    break
-                except:
-                    print("Введены неверные данные")
+            output = 0
+            # while run:
+            #     try:
+            output = str(input('Как вывести ответ? (tab, str)'))
+                #     break
+                # except:
+                #     print("Введены неверные данные")
             if output == 'str':
                 if fun == 'g':
                     print('Максимальный эл-т массива mg: ' + str(mg_max))
@@ -141,15 +143,15 @@ while run:
 my_file_mg = open('mg_list.txt', 'w')
 for i in mg:
     my_file_mg.write(str(i) + '\n')
-    my_file_mg.close()
+my_file_mg.close()
 my_file_mf = open('mf_list.txt', 'w')
 for i in mf:
-    my_file_mf.write(str(mf) + '\n')
-    my_file_mf.close()
+    my_file_mf.write(str(i) + '\n')
+my_file_mf.close()
 my_file_my = open('my_list.txt', 'w')
 for i in my:
-    my_file_my.write(str(my) + '\n')
-    my_file_my.close()
+    my_file_my.write(str(i) + '\n')
+my_file_my.close()
 
 mf.clear()
 mg.clear()
