@@ -58,7 +58,7 @@ while p >= 0:
                 else:
                     if f > mf_max:
                         mf_max = f
-                        mf.append(f)
+                    mf.append(f)
                     a += sh
         # Ф-ия y
         elif fun == 'y':
@@ -69,7 +69,7 @@ while p >= 0:
                 else:
                     if y > my_max:
                         my_max = y
-                        my.append(y)
+                    my.append(y)
                     a += sh
         else:
             print("ERROR")
