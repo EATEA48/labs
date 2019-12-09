@@ -1,10 +1,10 @@
-import random
-a = float(input())
-x = float(random.randint(0, 9))
-i = 0
-while abs(x-a) > 0.001:
-    answer = 0.5 * (x + a/x)
-    x = answer
-    i += 1
-    if i == 10:
-        print(answer)
+
+a = float(input("Введите чисор из которого нужно извлечь корень: "))
+x = 3
+b = 0
+
+while b != (a ** 0.5):
+    b = 0.5 * (x + a/x )
+    x = b
+print(int(b))
+
