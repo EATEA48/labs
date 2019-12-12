@@ -4,8 +4,8 @@
 
 int main()
 {
-    float a, x, sh, g, f, y;
-    int p, i, fun, quest;
+    float a, x, sh, g, f, y, mf[20], mg[20], my[20];
+    int p, i, fun, quest, c = 0;
     double pi = 3.1415926;
 
 
@@ -53,9 +53,14 @@ int main()
                         printf("ERROR");
                     } else
                     {
+                        for (int i = c;i <= c; i++)
+                        {
+                            mg[i] = g;
+                        }
                         printf("g = %f\n\n", g);
                     }
                     a += sh;
+                    c += 1;
                     break;
                 case 2:
                     f = (sin(pi * (10 * pow(a, 2) + 37 * a * x + 7 * pow(x, 2))));
@@ -69,6 +74,26 @@ int main()
                     break;
                 default:
                     printf("Неправельный ввод");
+            }
+            if (p == 0 && quest == 2)
+            {
+                int out;
+                printf("Как вывести ответ?(tabl - 1, str - 2)");
+                scanf("%d", &out);
+
+                switch(out)
+                {
+                    case 1:
+                        if (fun == 1)
+                        {
+                            printf("Максимальный элемент массива");
+                            printf("%f", mg);
+                            for (i = 0; i <= c; i++)
+                            {
+                                printf("%f", mg[i]);
+                            }
+                        }
+                }
             }
         }
 
