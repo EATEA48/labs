@@ -5,7 +5,7 @@
 int main()
 {
     float a, x, sh, g, f, y, mf[20], mg[20], my[20];
-    int p, i, fun, quest, c = 0;
+    int p, i, fun, quest, c = 0, out;
     double pi = 3.1415926;
 
 
@@ -75,27 +75,26 @@ int main()
                 default:
                     printf("Неправельный ввод");
             }
-            if (p == 0 && quest == 2)
-            {
-                int out;
-                printf("Как вывести ответ?(tabl - 1, str - 2)");
-                scanf("%d", &out);
-
-                switch(out)
-                {
-                    case 1:
-                        if (fun == 1)
-                        {
-                            printf("Максимальный элемент массива");
-                            printf("%f", mg);
-                            for (i = 0; i <= c; i++)
-                            {
-                                printf("%f", mg[i]);
-                            }
-                        }
-                }
-            }
         }
+    if (p == 0 && quest == 2)
+    {
+        printf("Как вывести ответ?(tabl - 1, str - 2)");
+        scanf("%d", &out);
+
+        switch(out)
+        {
+            case 1:
+                if (fun == 1)
+                {
+                    printf("Максимальный элемент массива");
+//                    printf("%f", mg_max);
+                    for (i = 0; i <= c; i++)
+                    {
+                        printf("%f", mg[i]);
+                    }
+                }
+        }
+    }
 
     return 0;
 }
