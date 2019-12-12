@@ -5,7 +5,7 @@
 int main()
 {
     float a, x, sh, g, f, y, mf[100], mg[100], my[100], mg_max = 0, mf_max = 0, my_max = 0;
-    int p, i, fun, quest, c = -1, out;
+    int p, i, fun, quest, c = 0, out;
     double pi = 3.1415926;
     FILE *file_mg, *file_mf, *file_my;
 
@@ -64,7 +64,7 @@ int main()
                         {
                             mg_max = g;
                         }
-                        for (int i = c;i <= c; i++)
+                        for (int i = 0;i <= c; i++)
                             mg[i] = g;
                     }
                     a += sh;
@@ -83,7 +83,7 @@ int main()
                         {
                             mf_max = f;
                         }
-                        for (i = c; i<= c; i++)
+                        for (i = 0; i<= c; i++)
                             mf[i] = f;
                     }
                     a += sh;
@@ -102,7 +102,7 @@ int main()
                         {
                             my_max = y;
                         }
-                        for (i = c; i <= c; i++)
+                        for (i = 0; i <= c; i++)
                             my[i] = y;
                     }
                     a += sh;
@@ -116,7 +116,6 @@ int main()
     {
         printf("Как вывести ответ?(tabl - 1, str - 2)");
         scanf("%d", &out);
-
         switch(out)
         {
             case 1:
@@ -177,7 +176,7 @@ int main()
 
     file_my = fopen("file_my.txt", "w");
     for (i = 0; i <= c; i++)
-        fprintf(file_my, "%f]\n", my[i]);
+        fprintf(file_my, "%f\n", my[i]);
     fclose(file_my);
 
     for (i = 0; i <= c; i++)
