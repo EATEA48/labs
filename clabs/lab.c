@@ -1,17 +1,12 @@
-
 #include <stdio.h>
 #include <math.h>
-#include <locale.h>
 
 
 int main()
 {
-//    setlocale(LC_ALL, "Rus");
     float a, x, sh, g, f, y;
-    int p, i, fun;
+    int p, i, fun, quest;
     double pi = 3.1415926;
-    float mg_max, mf_max, my_max;
-    float mg[50], mf[50], my[50];
 
 
     printf("Введите a: ");
@@ -20,7 +15,7 @@ int main()
     printf("Введите x; ");
     scanf("%f", &x);
 
-    printf("Введите ф-ю которую хотите посчитать: ");
+    printf("Введите ф-ю которую хотите посчитать(g-1, f-2, y-3): ");
     scanf("%d", &fun);
 
     printf("Сколько считать?: ");
@@ -29,16 +24,18 @@ int main()
     printf("С каким шагом?: ");
     scanf("%f", &sh);
 
-
-    for (i = 0; i < p; i++)
+    for (i = 0; i <= p; p--)
         if (p == 0)
         {
-            char quest;
-            scanf("Вы хотете продолжить?(y, n) %c\n", quest);
-            if (quest == "y")
+            printf("Вы хотите продолжить?(y-1, n-2): ");
+            scanf("%d", &quest);
+            if (quest == 1)
             {
-                scanf("Сколько считать?: %d\n", &p);
-                scanf("С каким шагом?: %f\n", &sh);
+                printf("Сколько считать? ");
+                scanf("%d", &p);
+
+                printf("С каким шагом? ");
+                scanf("%f", &sh);
             }
             else
             {
@@ -53,54 +50,25 @@ int main()
                     g = (-1 *(2 * (-5 * pow(a, 2) + 3 * a * x + 2 * pow(x, 2)) / (5 *pow(a, 2) + 9 * a * x - 2 * pow (x, 2))));
                     if ((5 *pow(a, 2) + 9 * a * x - 2 * pow (x, 2)) == 0)
                     {
-                        printf("%s", "ERROR");
-                    }
-                    else
+                        printf("ERROR");
+                    } else
                     {
-                        if (g > mg_max)
-                        {
-                            mg_max = g;
-                        }
                         printf("g = %f\n\n", g);
-                        a += sh;
                     }
+                    a += sh;
                     break;
                 case 2:
                     f = (sin(pi * (10 * pow(a, 2) + 37 * a * x + 7 * pow(x, 2))));
-                    if (a == 0)
-                    {
-                        printf("%s", "ERROR");
-                    }
-                    else
-                    {
-                        if (f > mf_max)
-                        {
-                            mf_max = f;
-                        }
-                        //                    for (int i = 50; i > 0; i--)
-                        //                        mf_max[i] = mf_max[i - 1];
-                        printf("f = %f\n\n", f);
-                        a += sh;
-                    }
+                    printf("f = %f\n\n", f);
+                    a += sh;
                     break;
                 case 3:
                     y = (log(-5 * pow(a, 2) - 16 * a * x + 16 * pow(x, 2) + 1) / log(2));
-                    if (log(2) == 0)
-                    {
-                        printf("%s", "ERROR");
-                    }
-                    else
-                    {
-                        if (y > my_max)
-                        {
-                            my_max = y;
-                        }
-                        printf("y = %f\n\n", y);
-                        a += sh;
-                    }
+                    printf("y = %f\n\n", y);
+                    a += sh;
                     break;
                 default:
-                    printf("%s", "ERROR");
+                    printf("Неправельный ввод");
             }
         }
 
