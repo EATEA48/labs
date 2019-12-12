@@ -1,12 +1,13 @@
 #include <stdio.h>
 #include <math.h>
-
+#include <string.h>
 
 int main()
 {
-    float a, x, sh, g, f, y, mf[20], mg[20], my[20], mg_max = 0, mf_max = 0, my_max = 0;
-    int p, i, fun, quest, c = 0, out;
+    float a, x, sh, g, f, y, mf[100], mg[100], my[100], mg_max = 0, mf_max = 0, my_max = 0;
+    int p, i, fun, quest, c = -1, out;
     double pi = 3.1415926;
+    FILE *file_mg, *file_mf, *file_my;
 
 
     printf("Введите a: ");
@@ -23,6 +24,10 @@ int main()
 
     printf("С каким шагом?: ");
     scanf("%f", &sh);
+
+    memset(mg, 0, 100*4);
+    memset(mf, 0, 100*4);
+    memset(my, 0, 100*4);
 
     for (i = 0; i <= p; p--)
         if (p == 0)
@@ -48,6 +53,7 @@ int main()
             {
                 case 1:
                     g = (-1 *(2 * (-5 * pow(a, 2) + 3 * a * x + 2 * pow(x, 2)) / (5 *pow(a, 2) + 9 * a * x - 2 * pow (x, 2))));
+                    printf("g = %f\n", g);
                     if ((5 *pow(a, 2) + 9 * a * x - 2 * pow (x, 2)) == 0)
                     {
                         printf("ERROR");
@@ -59,22 +65,48 @@ int main()
                             mg_max = g;
                         }
                         for (int i = c;i <= c; i++)
-                        {
                             mg[i] = g;
-                        }
                     }
                     a += sh;
                     c += 1;
                     break;
                 case 2:
                     f = (sin(pi * (10 * pow(a, 2) + 37 * a * x + 7 * pow(x, 2))));
-//                    printf("f = %f\n\n", f);
+                    printf("f = %f\n", f);
+                    if (a == 0)
+                    {
+                        printf("ERROR");
+                    }
+                    else
+                    {
+                        if (mf_max < f)
+                        {
+                            mf_max = f;
+                        }
+                        for (i = c; i<= c; i++)
+                            mf[i] = f;
+                    }
                     a += sh;
+                    c += 1;
                     break;
                 case 3:
                     y = (log(-5 * pow(a, 2) - 16 * a * x + 16 * pow(x, 2) + 1) / log(2));
-//                    printf("y = %f\n\n", y);
+                    printf("y = %f\n", y);
+                    if (log(2 ) == 0)
+                    {
+                        printf("ERROR");
+                    }
+                    else
+                    {
+                        if (my_max < y)
+                        {
+                            my_max = y;
+                        }
+                        for (i = c; i <= c; i++)
+                            my[i] = y;
+                    }
                     a += sh;
+                    c += 1;
                     break;
                 default:
                     printf("Неправельный ввод");
@@ -133,5 +165,49 @@ int main()
         }
     }
 
+    file_mg = fopen("file_mg.txt", "w");
+    for (i = 0; i <= c; i++)
+        fprintf(file_mg, "%f\n" , mg[i]);
+    fclose(file_mg);
+
+    file_mf = fopen("file_mf.txt", "w");
+    for (i = 0; i <= c; i++)
+        fprintf(file_mf, "%f\n", mf[i]);
+    fclose(file_mf);
+
+    file_my = fopen("file_my.txt", "w");
+    for (i = 0; i <= c; i++)
+        fprintf(file_my, "%f]\n", my[i]);
+    fclose(file_my);
+
+    for (i = 0; i <= c; i++)
+    {
+        mg[i] = 0;
+        mf[i] = 0;
+        my[i] = 0;
+    }
+
+    file_mg = fopen("file_mg.txt", "r");
+    for (i = 0; i <= c; i++)
+        fscanf(file_mg, "%f\n", mg[i]);
+    fclose(file_mg);
+    printf(mg);
+    for (i = 0; i <= c; i++)
+        printf("%f\n", mg[i]);
+
+
+    file_mf = fopen("file_mf.txt", "r");
+    for (i = 0; i <= c; i++)
+        fscanf(file_mf, "%f\n", mf[i]);
+    fclose(file_mf);
+    printf(mf);
+
+    file_my = fopen("file_my", "r");
+    for (i = 0; i <= c; i++)
+        fscanf(file_my, "%f\n", my[i]);
+    fclose(file_my);
+    printf(my);
+
+    printf("С равно: %d", c);
     return 0;
 }
