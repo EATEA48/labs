@@ -22,7 +22,7 @@ for z in range(len(matrix)):
             a = pix[i, j][0]
             b = pix[i, j][1]
             c = pix[i, j][2]
-            S = pix[i, j] * matrix[z, i]
+            S = pix[i, j] * matrix[z, i] * div
             draw.point((i, j), (int(a), int(b), int(c)))
 img.show()
 img.close()
