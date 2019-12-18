@@ -5,7 +5,6 @@ width = image.size[0]
 height = image.size[1]
 pix = image.load()
 
-<<<<<<< HEAD
 for i in range(width):
     for j in range(height):
         a = pix[i, j][0]
@@ -15,14 +14,14 @@ for i in range(width):
         draw.point((i, j), (s, s, s))
 image.show()
 image.close()
-=======
+
 img = Image.open("Lenna.png")
 
 draw = ImageDraw.Draw(img)
 
 w = img.size[0]
 h = img.size[1]
->>>>>>> 6451ef4e30464c0caeee96842eeb96a31aed44ab
+
 
 pix = img.load()
 
