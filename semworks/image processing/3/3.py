@@ -1,13 +1,42 @@
+from PIL import Image, ImageDraw, ImageFilter
+import math
+image = Image.open('Lenna.png')
+draw = ImageDraw.Draw(image)
+w = image.size[0]
+h = image.size[1]
+pix = image.load()
 
-import cv2
-import numpy as np
+k = 0
 
-img = cv2.imread('Lenna.png')
-blur = cv2.GaussianBlur(img, (51, 51), 0)
-# cv2.imshow(' ', blur)
-# cv2.waitKey(0)
+r = 10
 
-# Объеденяет и выводит сразу 2 изображения
-vis = np.concatenate((img, blur), axis=1)
-cv2.imshow('', vis)
-cv2.waitKey(0)
+matrix = [
+    [0, 1, 0],
+    [1, 0, 1],
+    [0, 1, 0]
+]
+
+for i in range(len(matrix)):
+    for j in range(len(matrix[i-1])):
+            if (matrix[i + 1] or matrix[i - 1]) and (matrix[j + 1] or matrix[j - 1]) and (j != 2) and (i != 2):
+                print(matrix[i][j])
+            else:
+                i += 1
+
+
+
+# for i in range(w):
+#     for j in range(h):
+#         if (w + 1 or w - 1) and (h + 1 or h - 1):
+#             r = pix[i, j][0]
+#             g = pix[i, j][1]
+#             b = pix[i, j][2]
+#             rgb = (r + g + b)
+#
+#             a = 0.1 * rgb
+#
+#         draw.point((i, j), (round(a), round(a), round(a)))
+#
+#
+# image.show()
+# image.close()
