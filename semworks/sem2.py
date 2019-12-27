@@ -2,7 +2,7 @@ a = int(input())
 b = int(input())
 
 for i in range(a, b):
-    min = i + 1
+    min = 1000000000
     if i < min:
         min = i
 print(min)

@@ -1,13 +1,94 @@
 
-import cv2
-import numpy as np
+from PIL import Image, ImageDraw, ImageFilter
+import math
+# image = Image.open('Lenna.png')
+# draw = ImageDraw.Draw(image)
+# w = image.size[0]
+# h = image.size[1]
+# pix = image.load()
+#
+#
+# sigma = 1
+# k = 0
+#
+# r = 10
 
-img = cv2.imread('Lenna.png')
-blur = cv2.GaussianBlur(img, (51, 51), 0)
-# cv2.imshow(' ', blur)
-# cv2.waitKey(0)
+img = Image.open('Lenna.png').convert('L')
+r = 3
 
-# Объеденяет и выводит сразу 2 изображения
-vis = np.concatenate((img, blur), axis=1)
-cv2.imshow('', vis)
-cv2.waitKey(0)
+draw = ImageDraw.Draw(img)
+
+def gauss_blur(img, r):
+    imgData = list(img.getdata())
+
+    bluredImg = Image.new(img.mode, img.size)
+    bluredImgData = list(bluredImg.getdata())
+
+    rs = int(math.ceil(r * 2.57))
+
+    for i in range(0, img.height):
+        for j in range(0, img.width):
+            val = 0
+            wsum = 0
+            for iy in range(i - rs, i + rs + 1):
+                for ix in range(j - rs, j + rs + 1):
+                    x = min(img.width - 1, max(0, ix))
+                    y = min(img.height - 1, max(0, iy))
+                    dsq = (ix - j) * (ix - j) + (iy - i) * (iy - i)
+                    weight = math.exp(-dsq / (2 * r * r)) / (math.pi * 2 * r * r)
+                    val += imgData[y * img.width + x] * weight
+                    wsum += weight
+            bluredImgData[i * img.width + j] = round(val / wsum)
+
+    # bluredImg.putdata(bluredImgData)
+    # return bluredImg
+    draw.point(bluredImgData)
+    img.show()
+img.close()
+
+
+# for i in range(w):
+#     for j in range(h):
+#         if (w + 1 or w - 1) and (h + 1 or h - 1):
+#             r = pix[i, j][0]
+#             g = pix[i, j][1]
+#             b = pix[i, j][2]
+#             rgb = (r + g + b)
+#
+#             a = 0.1 * rgb
+#
+#         draw.point((i, j), (round(a), round(a), round(a)))
+#
+#
+# image.show()
+# image.close()
+
+# from PIL import Image, ImageDraw
+#
+# img = Image.open("Lenna.png")
+#
+# draw = ImageDraw.Draw(img)
+#
+# w = img.size[0]
+# h = img.size[1]
+#
+# matrix = [[0.5, 0.75, 0.5],
+#           [0.75, 1, 0.75],
+#           [0.5, 0.75, 0.5]
+#           ]
+#
+# div = 1 / 6
+#
+# pix = img.load()
+# for z in range(len(matrix)):
+#     m = matrix[z]
+#     for i in range(w):
+#         for j in range(h):
+#             a = pix[i, j][0]
+#             b = pix[i, j][1]
+#             c = pix[i, j][2]
+#             S = pix[i, j] * matrix[z, i] * div
+#             draw.point((i, j), (int(a), int(b), int(c)))
+# img.show()
+# img.close()
+#
