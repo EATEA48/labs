@@ -2,51 +2,66 @@
 #include <stdio.h>
 #define FCN_A_COST 1
 #define IDEAL_INTEGRAL_VALUE 42
-#define pi 3.14
+
+#define RECTANGLE 1
+#define TRAPEZOIDAL 2
+#define SIMPSON 3
+
+#define  MAX_ITER 1000
+
 double f1(double,double );
 double freq(double);
+double getIntegralValue(int method, double a, double start_x, double stop_x, int n);
+double rectIntegral(double a, double start_x, double stop_x, int N);
+double trapIntegral(double a, double start_x, double stop_x, int N);
+double simpIntegral(double a, double start_x, double stop_x, int N);
 
-double rectIntegral(double , double , int );
-double trapIntegral(double, double, int );
-double simpIntegral(double, double, int );
 void absDifferenceCompare(int, int, int, double, double );
+
 int main()
 {
     printf("Ideal integral value: 42\n");
-    absDifferenceCompare(100, 1000, 100, 1, 2);
-    printf("Rect integral value: %lf\n",rectIntegral(1,2,100));
-    printf("Trap integral value: %lf\n",trapIntegral(1,2,100));
-    printf("Simp integral value: %lf\n",simpIntegral(1,2,100));
+    printf("Rect integral value: %lf\n", getIntegralValue(RECTANGLE, 1, 0, 2 * M_PI, MAX_ITER));
+    printf("Trap integral value: %lf\n", getIntegralValue(TRAPEZOIDAL, 1, 0, 2 * M_PI, MAX_ITER));
+    printf("Simp integral value: %lf\n", getIntegralValue(SIMPSON, 1, 0, 2 * M_PI, MAX_ITER));
     return 0;
 }
-double rectIntegral(double a, double b,int n)
+
+double fcn(double a, double x)
 {
-    return (sin(pi * (10 * pow(a, 2) + 37 * a * b + 7 * pow(b, 2)))) + a;
-}
-double trapIntegral(double a, double b,int N)
-{
-    return (sin(pi * (10 * pow(a, 2) + 37 * a * b + 7 * pow(b, 2)))) + a-b;
-}
-double simpIntegral(double a, double b,int N)
-{
-    return (sin(pi * (10 * pow(a, 2) + 37 * a * b + 7 * pow(b, 2)))) + a+b;
+    return sin(M_PI * (10 * pow(a, 2) + 37 * a * x + 7 * pow(x, 2)));
 }
 
-double f1(double x,double a)
+double getIntegralValue(int method, double a, double start_x, double stop_x, int n)
 {
-    return x*x+a;
-}
-double freq(double time)
-{
-    return 1/ time;
-}
-void absDifferenceCompare(int startN, int stopN,int stepN ,double a, double b)
-{
-    for(int N = startN;N <= stopN;N+=stepN)
-    {
-        printf("%d;%lf;%lf;%lf\n,",N,
-        fabs(IDEAL_INTEGRAL_VALUE-rectIntegral(a,b,N)),
-        fabs(IDEAL_INTEGRAL_VALUE-trapIntegral(a,b,N)),
-        fabs(IDEAL_INTEGRAL_VALUE-simpIntegral(a,b,N)));
+    double result = 0.0;
+
+    switch (method) {
+        case RECTANGLE:
+            result = rectIntegral(a, start_x, stop_x, n);
+            break;
+        case TRAPEZOIDAL:
+            result = trapIntegral(a, start_x, stop_x, n);
+            break;
+        case SIMPSON:
+            result = simpIntegral(a, start_x, stop_x, n);
+            break;
+        default:
+            break;
     }
+
+    return result;
+}
+
+double rectIntegral(double a, double start_x, double stop_x, int N)
+{
+    return ((stop_x - start_x) * ((start_x + stop_x)/2));
+}
+double trapIntegral(double a, double start_x, double stop_x, int N)
+{
+    return 0.5*(stop_x - start_x)*(start_x + stop_x);
+}
+double simpIntegral(double a, double start_x, double stop_x, int N)
+{
+    return (stop_x - start_x) / 6.0 * (start_x + 4.0 * 0.5 * (start_x + stop_x) + stop_x);
 }

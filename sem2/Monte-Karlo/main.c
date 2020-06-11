@@ -2,27 +2,46 @@
 #include <stdlib.h>
 #include <math.h>
 #include <time.h>
+#include <locale.h>
 
-int main()
-{
-    int i,n1=1000,n2=0,n0=0,p;
-    float a,b,m,np;
-    double Pi;
-    np=n1*0.1;
-    srand (500);
-    for (i=1;i<=n1;i++)
+
+#define MAX_ITER 10000
+
+int main() {
+//    long long int i, n2 = 0;
+//    long double a, b;
+//    long double Pi;
+//    time_t t;
+//
+//    setlocale(LC_NUMERIC, "");
+//    struct lconv *ptrLocale = localeconv();
+//    ptrLocale->decimal_point = ",";
+//
+//    srand((unsigned) time(&t));
+//
+//    for (i = 0; i < MAX_ITER; i++) {
+//        a = (double)rand() / (double)RAND_MAX;
+//        b = (double)rand() / (double)RAND_MAX;
+//        n2 = (sqrt(pow(a, 2) + pow(b, 2)) <= 1.0f) ? ++n2 : n2;
+//
+//        if (i % 10000000 == 0) {
+//            Pi = (double)n2 / i * 4;
+//            printf("%1.20llf\n", Pi);
+//        }
+//    }
+
+    double x, y;
+    double PI;
+    double z = 1;
+    int count = 0;
+
+    for (int i = 1; i < MAX_ITER; i += 2)
     {
-        a = rand() % 100 * 0.01;
-        b = rand() % 100 * 0.01;
-        m = a*a+b*b;
-        printf ("%f %f %f %d \n", a,b,m,n2);
-        if (m<=1)
-        {
-            n2++;
-        }
+        PI += z * 4 / i;
+        z *= -1;
+
+        printf("%f\n", PI);
     }
 
-    Pi = (double)4 * n2 / n1;
-    printf ("Pi = %f\n",Pi);
     return 0;
 }
