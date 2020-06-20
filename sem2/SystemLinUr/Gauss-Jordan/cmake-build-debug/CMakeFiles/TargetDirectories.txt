@@ -1,0 +1,3 @@
+C:/Users/Andrey/CLionProjects/Gauss-Jordan/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+C:/Users/Andrey/CLionProjects/Gauss-Jordan/cmake-build-debug/CMakeFiles/Gauss_Jordan.dir
+C:/Users/Andrey/CLionProjects/Gauss-Jordan/cmake-build-debug/CMakeFiles/edit_cache.dir

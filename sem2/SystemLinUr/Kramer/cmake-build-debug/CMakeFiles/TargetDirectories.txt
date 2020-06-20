@@ -1,0 +1,3 @@
+C:/Users/Andrey/CLionProjects/Kramer/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+C:/Users/Andrey/CLionProjects/Kramer/cmake-build-debug/CMakeFiles/Kramer.dir
+C:/Users/Andrey/CLionProjects/Kramer/cmake-build-debug/CMakeFiles/edit_cache.dir
