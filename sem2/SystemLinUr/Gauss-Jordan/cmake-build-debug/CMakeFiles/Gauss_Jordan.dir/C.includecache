@@ -6,13 +6,11 @@
 
 #IncludeRegexTransform: 
 
-C:/Users/Andrey/CLionProjects/Kramer/main.c
-math.h
--
+C:/Users/Andrey/CLionProjects/Gauss-Jordan/main.c
 stdio.h
 -
-stdlib.h
--
 omp.h
+-
+stdlib.h
 -
 

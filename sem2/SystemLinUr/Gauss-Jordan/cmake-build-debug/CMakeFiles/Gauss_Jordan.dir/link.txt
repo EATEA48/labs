@@ -1,3 +1,3 @@
 C:\Users\Andrey\AppData\Local\JetBrains\Toolbox\apps\CLion\ch-0\193.5662.56\bin\cmake\win\bin\cmake.exe -E remove -f CMakeFiles\Gauss_Jordan.dir/objects.a
 C:\PROGRA~1\MINGW-~1\X86_64~1.0-P\mingw64\bin\ar.exe cr CMakeFiles\Gauss_Jordan.dir/objects.a @CMakeFiles\Gauss_Jordan.dir\objects1.rsp
-C:\PROGRA~1\MINGW-~1\X86_64~1.0-P\mingw64\bin\gcc.exe -g   -Wl,--whole-archive CMakeFiles\Gauss_Jordan.dir/objects.a -Wl,--no-whole-archive  -o Gauss_Jordan.exe -Wl,--out-implib,libGauss_Jordan.dll.a -Wl,--major-image-version,0,--minor-image-version,0 @CMakeFiles\Gauss_Jordan.dir\linklibs.rsp
+C:\PROGRA~1\MINGW-~1\X86_64~1.0-P\mingw64\bin\gcc.exe  -std=c99 -fopenmp -g   -Wl,--whole-archive CMakeFiles\Gauss_Jordan.dir/objects.a -Wl,--no-whole-archive  -o Gauss_Jordan.exe -Wl,--out-implib,libGauss_Jordan.dll.a -Wl,--major-image-version,0,--minor-image-version,0 @CMakeFiles\Gauss_Jordan.dir\linklibs.rsp
